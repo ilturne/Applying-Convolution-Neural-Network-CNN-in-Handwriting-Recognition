@@ -26,7 +26,7 @@ pub fn process_idx_files(image_file_path: &str, label_file_path: &str, output_di
     Ok(())
 }
 
-fn read_idx_images<P: AsRef<Path>>(path: P) -> io::Result<Vec<Vec<u8>>> {
+pub fn read_idx_images<P: AsRef<Path>>(path: P) -> io::Result<Vec<Vec<u8>>> {
     let mut file = File::open(path)?;
     let mut contents = Vec::new();
     file.read_to_end(&mut contents)?;
@@ -49,7 +49,7 @@ fn read_idx_images<P: AsRef<Path>>(path: P) -> io::Result<Vec<Vec<u8>>> {
     Ok(images)
 }
 
-fn read_idx_labels<P: AsRef<Path>>(path: P) -> io::Result<Vec<u8>> {
+pub fn read_idx_labels<P: AsRef<Path>>(path: P) -> io::Result<Vec<u8>> {
     let mut file = File::open(path)?;
     let mut contents = Vec::new();
     file.read_to_end(&mut contents)?;
